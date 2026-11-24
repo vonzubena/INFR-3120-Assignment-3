@@ -31,11 +31,10 @@ router.get('/add', (req, res, next) => {
 });
 
 /* Create Operation: save the new device */
-// EXTRA CODE: router.post and req.body read the submitted form.
-// Source: Express documentation (https://expressjs.com)
+// router.post and req.body read the submitted form (MEAN Stack slides 88 and 90)
 router.post('/add', async (req, res, next) => {
     try {
-        // Build the device from the form, then save it (new Model + save() is from the MongoDB slides)
+        // Build the device from the form, then save it (MongoDB slides: creating with save())
         let newDevice = new Device({
             name: req.body.name,
             category: req.body.category,
@@ -46,8 +45,7 @@ router.post('/add', async (req, res, next) => {
         });
         await newDevice.save();
 
-        // EXTRA CODE: res.redirect sends the user back to the inventory list.
-        // Source: Express documentation (https://expressjs.com)
+        // Send the user back to the inventory list (res.redirect, MEAN Stack slide 92)
         res.redirect('/devices');
     }
     catch (err) {
@@ -59,7 +57,49 @@ router.post('/add', async (req, res, next) => {
         });
     }
 });
-/* Update Operation */
+
+/* Update Operation: show the Edit form, filled in with this device */
+// req.params.id reads the device id from the address (MEAN Stack slide 90)
+router.get('/edit/:id', async (req, res, next) => {
+    try {
+        // find() with an equality query on _id (MongoDB slide 57) returns a list,
+        // so the device we want is the first item
+        const result = await Device.find({ _id: req.params.id });
+        const device = result[0];
+
+        res.render('Devices/edit', {
+            title: 'Edit Device',
+            device: device
+        });
+    }
+    catch (err) {
+        console.log(err);
+        res.redirect('/devices');
+    }
+});
+
+/* Update Operation: save the changes */
+router.post('/edit/:id', async (req, res, next) => {
+    try {
+        // Find the device, change its values, then save() it (MongoDB slide 66: updating with save())
+        const result = await Device.find({ _id: req.params.id });
+        let device = result[0];
+
+        device.name = req.body.name;
+        device.category = req.body.category;
+        device.brand = req.body.brand;
+        device.ipAddress = req.body.ipAddress;
+        device.location = req.body.location;
+        device.status = req.body.status;
+        await device.save();
+
+        res.redirect('/devices');
+    }
+    catch (err) {
+        console.log(err);
+        res.redirect('/devices');
+    }
+});
 
 /* Delete Operation */
 

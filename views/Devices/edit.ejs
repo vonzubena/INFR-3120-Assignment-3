@@ -1,0 +1,60 @@
+<%- include ../partials/header.ejs %>
+<%- include ../partials/main_nav.ejs %>
+
+<!-- Edit Device page: same form as Add Device, but each box starts with the device's current value -->
+<main class="container py-4 form-page">
+  <h1><%= title %></h1>
+
+  <!-- Sends the form to router.post('/edit/:id') in routes/device.js -->
+  <form method="POST" action="/devices/edit/<%= device._id %>">
+    <div class="mb-3">
+      <label for="name" class="form-label">Device Name</label>
+      <input type="text" class="form-control" id="name" name="name" value="<%= device.name %>" required>
+    </div>
+
+    <!-- In each dropdown, the first option is the device's current value, so it shows first -->
+    <div class="mb-3">
+      <label for="category" class="form-label">Category</label>
+      <select class="form-select" id="category" name="category">
+        <option value="<%= device.category %>"><%= device.category %> (current)</option>
+        <option value="Server">Server</option>
+        <option value="Networking">Networking</option>
+        <option value="Storage">Storage</option>
+        <option value="Single-Board Computer">Single-Board Computer</option>
+        <option value="Power / UPS">Power / UPS</option>
+        <option value="Accessory">Accessory</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="brand" class="form-label">Brand</label>
+      <input type="text" class="form-control" id="brand" name="brand" value="<%= device.brand %>">
+    </div>
+
+    <div class="mb-3">
+      <label for="ipAddress" class="form-label">IP Address</label>
+      <input type="text" class="form-control" id="ipAddress" name="ipAddress" value="<%= device.ipAddress %>">
+    </div>
+
+    <div class="mb-3">
+      <label for="location" class="form-label">Location</label>
+      <input type="text" class="form-control" id="location" name="location" value="<%= device.location %>">
+    </div>
+
+    <div class="mb-3">
+      <label for="status" class="form-label">Status</label>
+      <select class="form-select" id="status" name="status">
+        <option value="<%= device.status %>"><%= device.status %> (current)</option>
+        <option value="Online">Online</option>
+        <option value="Offline">Offline</option>
+        <option value="Maintenance">Maintenance</option>
+        <option value="Spare">Spare</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Update Device</button>
+    <a href="/devices" class="btn btn-secondary">Cancel</a>
+  </form>
+</main>
+
+<%- include ../partials/footer.ejs %>

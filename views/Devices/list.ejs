@@ -22,6 +22,7 @@
       <th>IP Address</th>
       <th>Location</th>
       <th>Status</th>
+      <th>Actions</th>
     </tr>
     <!-- One row per device -->
     <% for (let count = 0; count < DeviceList.length; count++) { %>
@@ -32,6 +33,11 @@
         <td><%= DeviceList[count].ipAddress %></td>
         <td><%= DeviceList[count].location %></td>
         <td><%= DeviceList[count].status %></td>
+        <td>
+          <!-- Edit button: the device's _id goes in the address so the route knows which one -->
+          <a href="/devices/edit/<%= DeviceList[count]._id %>" class="btn btn-sm btn-warning">
+            <i class="fa-solid fa-pen"></i> Edit</a>
+        </td>
       </tr>
     <% } %>
   </table>

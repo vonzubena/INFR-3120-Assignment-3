@@ -2,6 +2,8 @@
  * Starts the web server (moved from bin/www, same as in class)
  */
 
+// EXTRA CODE: loads the .env file so process.env.MONGO_URI is available.
+// The assignment requires .env, and no course example shows how to load one.
 // Source: dotenv package (https://www.npmjs.com/package/dotenv)
 require('dotenv').config();
 
