@@ -7,6 +7,7 @@ let logger = require('morgan');
 // Routers: each one handles a group of pages
 let indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
+let devicesRouter = require('../routes/device');
 
 let app = express();
 
@@ -34,6 +35,7 @@ app.use(express.static(path.join(__dirname, '../node_modules')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/devices', devicesRouter);
 
 // Page not found: pass a 404 to the error handler
 app.use(function(req, res, next) {

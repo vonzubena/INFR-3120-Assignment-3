@@ -1,0 +1,37 @@
+<%- include ../partials/header.ejs %>
+<%- include ../partials/main_nav.ejs %>
+
+<!-- Inventory page: lists every device in a table (same layout as the class book list) -->
+<main class="container py-4">
+  <h1><%= title %></h1>
+
+  <!-- Only shows if the database had a problem -->
+  <% if (typeof error !== 'undefined') { %>
+    <div class="alert alert-danger"><%= error %></div>
+  <% } %>
+
+  <table class="table table-bordered table-striped table-hover">
+    <!-- Header row -->
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Brand</th>
+      <th>IP Address</th>
+      <th>Location</th>
+      <th>Status</th>
+    </tr>
+    <!-- One row per device -->
+    <% for (let count = 0; count < DeviceList.length; count++) { %>
+      <tr>
+        <td><%= DeviceList[count].name %></td>
+        <td><%= DeviceList[count].category %></td>
+        <td><%= DeviceList[count].brand %></td>
+        <td><%= DeviceList[count].ipAddress %></td>
+        <td><%= DeviceList[count].location %></td>
+        <td><%= DeviceList[count].status %></td>
+      </tr>
+    <% } %>
+  </table>
+</main>
+
+<%- include ../partials/footer.ejs %>
