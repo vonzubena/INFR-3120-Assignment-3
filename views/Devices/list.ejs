@@ -4,6 +4,9 @@
 <!-- Inventory page: lists every device in a table (same layout as the class book list) -->
 <main class="container py-4">
   <h1><%= title %></h1>
+  
+  <!-- Button to the Add Device form -->
+  <a href="/devices/add" class="btn btn-primary mb-3"><i class="fa-solid fa-plus"></i> Add Device</a>
 
   <!-- Only shows if the database had a problem -->
   <% if (typeof error !== 'undefined') { %>
