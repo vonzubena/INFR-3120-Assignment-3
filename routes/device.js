@@ -101,6 +101,19 @@ router.post('/edit/:id', async (req, res, next) => {
     }
 });
 
-/* Delete Operation */
-
+/* Delete Operation: remove one device */
+// The Delete button links here; the browser asks "Are you sure?" first (public/Script/app.js)
+router.get('/delete/:id', async (req, res, next) => {
+    try {
+        // EXTRA CODE: deleteOne removes the device with this _id.
+        // The slides use remove() (MongoDB slide 71), which newer Mongoose no longer has;
+        // deleteOne is its replacement. Source: Mongoose documentation (https://mongoosejs.com)
+        await Device.deleteOne({ _id: req.params.id });
+        res.redirect('/devices');
+    }
+    catch (err) {
+        console.log(err);
+        res.redirect('/devices');
+    }
+});
 module.exports = router;
