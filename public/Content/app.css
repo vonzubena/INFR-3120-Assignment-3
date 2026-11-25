@@ -1,0 +1,107 @@
+/* Homelab Inventory: our own cyberpunk theme.
+   Bootstrap does the layout; this file sets the colours.
+   Palette: yellow #FCEE0A, cyan #00F0FF, red #FF003C, black #0A0A0F, dark grey #12121C */
+
+/* Whole page: black background, light text, terminal-style font */
+body {
+  background-color: #0A0A0F;
+  color: #e6e6e6;
+  font-family: "Courier New", monospace;
+  padding-bottom: 80px; /* room for the fixed footer */
+}
+
+/* Navbar and footer: dark grey panel with a yellow border */
+.cyber-nav {
+  background-color: #12121C;
+  border: 1px solid #FCEE0A;
+}
+
+/* Site name and footer text in yellow */
+.cyber-nav .navbar-brand {
+  color: #FCEE0A;
+}
+
+/* Footer text: small gap from the left edge */
+.cyber-nav h6 {
+  margin-left: 15px;
+}
+
+/* Navbar links in cyan, the current page (active tab) in yellow */
+.cyber-nav .nav-link {
+  color: #00F0FF;
+}
+
+.cyber-nav .nav-link.active {
+  color: #FCEE0A;
+}
+
+/* Page titles in yellow with a red line underneath */
+h1 {
+  color: #FCEE0A;
+  box-shadow: 0 4px 0 #FF003C;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+/* Splash page hero banner: yellow with black text and a red offset "glitch" shadow */
+.splash {
+  background-color: #FCEE0A;
+  color: #0A0A0F;
+  border-radius: 4px;
+  box-shadow: 8px 8px 0 #FF003C;
+  margin-top: 40px;
+}
+
+.splash h1 {
+  color: #0A0A0F;
+  box-shadow: none;
+}
+
+/* Main buttons: yellow with black text, red on hover */
+.btn-primary {
+  background-color: #FCEE0A;
+  border: 1px solid #FCEE0A;
+  color: #0A0A0F;
+}
+
+.btn-primary:hover {
+  background-color: #FF003C;
+  border: 1px solid #FF003C;
+  color: #ffffff;
+}
+
+/* The button on the yellow banner is black so it stands out, and red on hover */
+.splash .btn-primary {
+  background-color: #0A0A0F;
+  border: 1px solid #0A0A0F;
+  color: #FCEE0A;
+}
+
+.splash .btn-primary:hover {
+  background-color: #FF003C;
+  border: 1px solid #FF003C;
+  color: #ffffff;
+}
+
+/* Inventory table: dark grey cells with a yellow border */
+.table {
+  border: 1px solid #FCEE0A;
+}
+
+.table th,
+.table td {
+  background-color: #12121C;
+}
+
+/* Form boxes: dark grey with cyan borders */
+.form-control,
+.form-select {
+  background-color: #12121C;
+  border: 1px solid #00F0FF;
+  color: #e6e6e6;
+}
+
+/* Add and Edit forms: keep them a readable width */
+.form-page {
+  max-width: 600px;
+}
