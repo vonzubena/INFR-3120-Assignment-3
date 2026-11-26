@@ -4,7 +4,7 @@ INFR3120 Assignment 3: Secure CRUD Application
 
 Homelab Inventory keeps track of the hardware in a home lab: servers, switches, storage, Raspberry Pis and more. You can add, view, edit and delete devices, and everything is saved in a MongoDB Atlas database.
 
-**Live site:** [TBD]
+**Live site:** https://homelab-inventory.onrender.com/
 
 - Splash (home) page
 - Shared header (navbar) and footer on every page
