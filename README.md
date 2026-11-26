@@ -48,8 +48,8 @@ HomelabInventory/
 │   │   └── edit.ejs        Edit Device form (Update)
 │   ├── index.ejs           splash page
 │   └── error.ejs           error page
-├── .gitignore             
-├── package.json             keeps node_modules and .env off GitHub
+├── .gitignore              keeps node_modules and .env off GitHub
+├── package.json             
 ├── package-lock
 └── server.js               starts the server
 ```
